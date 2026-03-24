@@ -14,7 +14,7 @@ export default function About() {
               key={line}
               initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
+              viewport={{ once: true, amount: 0.15 }}
               transition={{ delay: index * 0.08, duration: 0.45 }}
               className="max-w-2xl text-base leading-8 text-zinc-300 md:text-[17px]"
             >

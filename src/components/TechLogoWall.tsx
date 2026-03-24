@@ -57,7 +57,7 @@ export default function TechLogoWall() {
         variants={variants}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.1 }}
       >
         <div className="mx-auto max-w-6xl lux-card px-6 py-8 md:px-8">
           <p className="eyebrow">Stack &amp; tools</p>
@@ -90,7 +90,7 @@ export default function TechLogoWall() {
       variants={variants}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.1 }}
     >
       <div className="tech-marquee-outer mx-auto max-w-6xl lux-card overflow-hidden px-4 py-7 md:px-6 md:py-8">
         <p className="eyebrow text-center md:text-left">Stack &amp; tools</p>
