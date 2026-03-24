@@ -10,6 +10,7 @@ import Experience from "@/components/Experience";
 import Hero from "@/components/Hero";
 import ImpactStrip from "@/components/ImpactStrip";
 import JourneyProgress from "@/components/JourneyProgress";
+import TechLogoWall from "@/components/TechLogoWall";
 import Leadership from "@/components/Leadership";
 import LoadingScreen from "@/components/LoadingScreen";
 import Navbar from "@/components/Navbar";
@@ -36,10 +37,11 @@ export default function SiteShell() {
         className="pb-8"
         initial={{ opacity: 0, y: 10 }}
         animate={loading ? { opacity: 0, y: 10 } : { opacity: 1, y: 0 }}
-        transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 0.72, ease: [0.16, 1, 0.3, 1] }}
       >
         <Hero />
         <ImpactStrip />
+        <TechLogoWall />
         <About />
         <Experience />
         <Projects />

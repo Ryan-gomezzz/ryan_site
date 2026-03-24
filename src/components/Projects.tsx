@@ -1,21 +1,31 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { FolderGit2 } from "lucide-react";
 import SectionWrapper from "@/components/SectionWrapper";
 import { projects } from "@/lib/data";
 
 export default function Projects() {
+  const reduceMotion = useReducedMotion();
+
   return (
     <SectionWrapper id="projects" number="04." title="Selected Case Studies">
       <div className="grid gap-5 md:grid-cols-2">
         {projects.map((project, index) => (
           <motion.article
             key={project.id}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={
+              reduceMotion
+                ? { opacity: 0, y: 14 }
+                : { opacity: 0, y: 32, clipPath: "inset(100% 0 0 0)" }
+            }
+            whileInView={
+              reduceMotion
+                ? { opacity: 1, y: 0 }
+                : { opacity: 1, y: 0, clipPath: "inset(0% 0 0 0)" }
+            }
             viewport={{ once: true, amount: 0.25 }}
-            transition={{ duration: 0.55, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.62, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
             whileHover={{ y: -4 }}
             className={`lux-card signal-hover group p-6 md:p-7 ${
               project.featured ? "md:col-span-2 md:min-h-[340px]" : "md:min-h-[320px]"

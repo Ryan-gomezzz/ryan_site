@@ -1,13 +1,33 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
+import { useMemo } from "react";
 import { profile } from "@/lib/data";
 import TextScramble from "@/components/TextScramble";
+import { heroOpen } from "@/lib/motion";
 import Image from "next/image";
 
 export default function Hero() {
+  const reduceMotion = useReducedMotion();
+  const shell = useMemo(
+    () =>
+      reduceMotion
+        ? {
+            hidden: { opacity: 0, y: 12 },
+            show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+          }
+        : heroOpen,
+    [reduceMotion],
+  );
+
   return (
-    <section id="hero" className="relative px-6 pb-14 pt-32 md:px-10 lg:px-16">
+    <motion.section
+      id="hero"
+      className="relative px-6 pb-14 pt-32 md:px-10 lg:px-16"
+      variants={shell}
+      initial="hidden"
+      animate="show"
+    >
       <div className="mx-auto grid w-full max-w-6xl items-end gap-8 lg:grid-cols-[1.15fr_0.85fr]">
         <div className="lux-card p-7 md:p-10">
           <motion.p
@@ -79,6 +99,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
