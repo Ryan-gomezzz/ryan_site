@@ -3,7 +3,7 @@
 import { animate, motion, useInView, useMotionValue, useReducedMotion, useTransform } from "framer-motion";
 import { useEffect, useMemo, useRef } from "react";
 import { impactMetrics } from "@/lib/data";
-import { sectionReveal } from "@/lib/motion";
+import { bandReveal } from "@/lib/motion";
 
 function Counter({
   target,
@@ -48,7 +48,7 @@ export default function ImpactStrip() {
             hidden: { opacity: 0, y: 16 },
             show: { opacity: 1, y: 0, transition: { duration: 0.45 } },
           }
-        : sectionReveal,
+        : bandReveal,
     [reduceMotion],
   );
 

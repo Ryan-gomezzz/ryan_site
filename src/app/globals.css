@@ -231,6 +231,46 @@ main::before {
   }
 }
 
+.tech-marquee-wrap {
+  mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+}
+
+.tech-marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 2.25rem;
+  align-items: center;
+  animation: techMarqueeL 55s linear infinite;
+}
+
+.tech-marquee-track-reverse {
+  animation-name: techMarqueeR;
+  animation-duration: 62s;
+}
+
+.tech-marquee-outer:hover .tech-marquee-track,
+.tech-marquee-outer:hover .tech-marquee-track-reverse {
+  animation-play-state: paused;
+}
+
+@keyframes techMarqueeL {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes techMarqueeR {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html,
   body {
@@ -239,5 +279,15 @@ main::before {
 
   .ticker-track {
     animation: none;
+  }
+
+  .tech-marquee-track,
+  .tech-marquee-track-reverse {
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: 56rem;
+    margin-inline: auto;
   }
 }

@@ -43,19 +43,22 @@ export default function Navbar() {
         </a>
         <div className="hidden items-center gap-4 lg:gap-7 md:flex">
           {navItems.map((item) => (
-            <a
+            <motion.a
               key={item.id}
               href={`#${item.id}`}
               className="relative font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-300 transition-colors hover:text-cyan-300"
+              whileTap={{ scale: 0.96 }}
+              transition={{ type: "spring", stiffness: 520, damping: 28 }}
             >
               {item.label}
               {active === item.id && (
                 <motion.span
                   layoutId="activeNav"
                   className="absolute -bottom-1 left-0 h-px w-full bg-cyan-300"
+                  transition={{ type: "spring", stiffness: 380, damping: 32 }}
                 />
               )}
-            </a>
+            </motion.a>
           ))}
         </div>
 
@@ -71,23 +74,36 @@ export default function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
             className="wire-card mx-4 mb-4 rounded-md p-6 md:hidden"
           >
-            <div className="flex flex-col gap-4">
+            <motion.div
+              className="flex flex-col gap-1"
+              initial="hidden"
+              animate="show"
+              variants={{
+                show: { transition: { staggerChildren: 0.07, delayChildren: 0.04 } },
+              }}
+            >
               {navItems.map((item) => (
-                <a
+                <motion.a
                   key={item.id}
                   href={`#${item.id}`}
                   onClick={() => setOpen(false)}
-                  className="font-mono text-sm uppercase tracking-[0.16em] text-zinc-200"
+                  className="rounded-md px-2 py-2 font-mono text-sm uppercase tracking-[0.16em] text-zinc-200"
+                  variants={{
+                    hidden: { opacity: 0, x: -12 },
+                    show: { opacity: 1, x: 0 },
+                  }}
+                  transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                 >
                   {item.label}
-                </a>
+                </motion.a>
               ))}
-            </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
