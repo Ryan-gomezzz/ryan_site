@@ -13,7 +13,7 @@ export default function CurrentlyBuilding() {
       <motion.article
         initial={{ opacity: 0, x: -24 }}
         whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, amount: 0.4 }}
+        viewport={{ once: true, amount: 0.12 }}
         transition={{ duration: 0.45 }}
         className="lux-card overflow-hidden"
       >

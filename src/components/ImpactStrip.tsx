@@ -58,7 +58,7 @@ export default function ImpactStrip() {
       variants={stripVariants}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.25 }}
+      viewport={{ once: true, amount: 0.1 }}
     >
       <div className="mx-auto w-full max-w-6xl">
         <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-4">

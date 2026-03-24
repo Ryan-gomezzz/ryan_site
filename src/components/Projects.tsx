@@ -14,17 +14,9 @@ export default function Projects() {
         {projects.map((project, index) => (
           <motion.article
             key={project.id}
-            initial={
-              reduceMotion
-                ? { opacity: 0, y: 14 }
-                : { opacity: 0, y: 32, clipPath: "inset(100% 0 0 0)" }
-            }
-            whileInView={
-              reduceMotion
-                ? { opacity: 1, y: 0 }
-                : { opacity: 1, y: 0, clipPath: "inset(0% 0 0 0)" }
-            }
-            viewport={{ once: true, amount: 0.25 }}
+            initial={reduceMotion ? { opacity: 0, y: 10 } : { opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.12 }}
             transition={{ duration: 0.62, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
             whileHover={{ y: -4 }}
             className={`lux-card signal-hover group p-6 md:p-7 ${
